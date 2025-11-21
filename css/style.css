@@ -1,0 +1,62 @@
+/* TIPOGRAFÍAS */
+background: #f0ece6;
+}
+
+
+/* CARDS */
+.cards {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 30px;
+margin-top: 40px;
+}
+
+
+.card {
+background: white;
+padding: 30px;
+border-radius: 8px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+
+/* CONTACTO */
+.contacto {
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+}
+
+
+.contact-logo {
+width: 220px;
+opacity: 0.85;
+}
+
+
+/* FOOTER */
+.footer {
+background: #111;
+color: white;
+padding: 50px 0;
+}
+
+
+.footer-grid {
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+}
+
+
+.footer a {
+color: #fff;
+text-decoration: none;
+opacity: 0.8;
+}
+
+
+.footer a:hover {
+opacity: 1;
+}
