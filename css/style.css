@@ -1,0 +1,78 @@
+/* Reset + variables */
+:root{
+  --verde: #0ea75b;
+  --verde-oscuro: #0b6b3a;
+  --texto: #1b1b1b;
+  --bg: #ffffff;
+  --nav-height: 76px;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:var(--bg);color:var(--texto);scroll-behavior:smooth}
+
+/* HEADER */
+header{
+  position:fixed;top:0;left:0;right:0;height:var(--nav-height);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 28px;z-index:999;background:rgba(255,255,255,0.95);backdrop-filter:blur(6px);
+  transition:background .28s ease, box-shadow .28s ease;
+}
+/* logo sizing (important fix) */
+.brand img{
+  height:48px;
+  max-width:220px;
+  object-fit:contain;
+  display:block;
+}
+
+/* nav (supports your .nav-btn markup) */
+#site-nav{display:flex;gap:12px;align-items:center}
+.nav-btn, #site-nav a{
+  display:inline-block;padding:8px 10px;text-decoration:none;color:var(--texto);font-weight:600;border-radius:6px;position:relative;transition:all .18s ease;
+}
+.nav-btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+.nav-btn::after{content:'';position:absolute;left:10px;right:10px;bottom:6px;height:3px;background:transparent;border-radius:3px;transition:all .18s ease}
+.nav-btn:hover::after{background:var(--verde-oscuro)}
+.nav-btn.active{color:var(--verde-oscuro)}
+.nav-btn.active::after{background:var(--verde-oscuro);height:4px}
+
+/* header when scrolled (blanco -> verde) */
+header.scrolled{background:var(--verde);color:white}
+header.scrolled .nav-btn{color:rgba(255,255,255,0.95)}
+header.scrolled .nav-btn::after{background:rgba(255,255,255,0.85)}
+
+/* HERO */
+.hero{
+  margin-top:var(--nav-height);
+  height:95vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;color:white;
+  background-image:url("../images/hero.png");background-size:cover;background-position:center;
+}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(11,107,58,0.25), rgba(11,107,58,0.05));mix-blend-mode:multiply}
+.hero-inner{position:relative;z-index:2;padding:28px}
+.hero h1{font-size:clamp(28px,6vw,56px);margin:0 0 12px}
+.hero p{font-size:1.05rem;margin:0 0 18px}
+.cta{background:var(--verde);color:white;padding:10px 16px;border-radius:8px;text-decoration:none}
+
+/* SECTIONS */
+section{padding:80px 12%;background:transparent}
+section.block{background:white;border-radius:10px;padding:48px;margin-bottom:28px;box-shadow:0 6px 20px rgba(0,0,0,0.04)}
+section h2{color:var(--verde-oscuro);margin-top:0}
+.servicios-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.servicio{background:#edf8ef;padding:20px;border-radius:12px}
+
+/* FAQ, form etc */
+.faq-item{background:#eef8ef;padding:18px;border-radius:10px;margin-bottom:12px}
+form input,form textarea{width:100%;padding:12px;border-radius:8px;border:1px solid #d6e7d6;margin-top:8px}
+button{background:var(--verde);color:white;border:none;padding:10px 18px;border-radius:8px;cursor:pointer}
+
+/* Footer */
+footer{padding:32px 12%;text-align:center;color:#555;background:#fbfdfb;margin-top:40px}
+
+/* responsive */
+@media (max-width:800px){
+  .brand img{height:44px}
+  .hero h1{font-size:2rem}
+  header{padding:10px 16px}
+  section{padding:40px 6%}
+  #site-nav{gap:6px;flex-wrap:wrap}
+}
